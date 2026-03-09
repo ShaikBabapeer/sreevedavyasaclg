@@ -427,7 +427,7 @@
             font-size: 1.2rem;
         }
 
-        /* --- PLACEMENTS SECTION (Upgraded with Logos) --- */
+        /* --- PLACEMENTS SECTION (Upgraded Logos Style) --- */
         .placements-intro {
             text-align: center;
             max-width: 800px;
@@ -445,7 +445,7 @@
 
         .placement-card {
             background: var(--white);
-            padding: 25px 35px;
+            padding: 20px 30px;
             border-radius: 20px;
             box-shadow: var(--shadow-soft);
             transition: var(--transition);
@@ -453,27 +453,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 180px;
+            width: 180px;
             height: 100px;
         }
 
         .placement-card img {
-            max-width: 130px;
+            max-width: 120px;
             max-height: 45px;
             object-fit: contain;
             filter: grayscale(100%) opacity(0.7);
             transition: var(--transition);
         }
 
-        .placement-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--primary-blue);
-        }
+        /* Desktop Hover Effect */
+        @media (hover: hover) and (pointer: fine) {
+            .placement-card:hover {
+                transform: translateY(-8px);
+                box-shadow: var(--shadow-hover);
+                border-color: var(--primary-blue);
+            }
 
-        .placement-card:hover img {
-            filter: grayscale(0%) opacity(1);
-            transform: scale(1.1);
+            .placement-card:hover img {
+                filter: grayscale(0%) opacity(1);
+                transform: scale(1.1);
+            }
         }
 
         /* --- LABS GALLERY SECTION --- */
@@ -686,25 +689,31 @@
                 padding: 0 20px;
             }
 
+            /* --- UPDATED PLACEMENTS FOR MOBILE --- */
+            .placements-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* Neat 2-column grid */
+                gap: 15px;
+            }
+
             .placement-card {
-                width: 45%; /* Two cards per row on mobile */
-                padding: 15px;
+                width: 100%;
+                height: 85px;
+                padding: 10px;
             }
 
             .placement-card img {
-                max-width: 100px;
+                max-width: 90%;
+                max-height: 40px;
+                /* Removes the gray filter immediately so logos are colorful on mobile */
+                filter: grayscale(0%) opacity(1); 
             }
+            /* ------------------------------------- */
 
             .contact-details {
                 padding: 40px 20px;
             }
             .contact-btn p { font-size: 1.2rem; }
-        }
-
-        @media (max-width: 480px) {
-            .placement-card {
-                width: 100%; /* Full width on very small screens */
-            }
         }
     </style>
 </head>
